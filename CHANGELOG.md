@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.3.13
+
+- Dark mobile theme for feeds, comments, preferences and form controls.
+- Compact Light mode / Dark mode toggle with remembered selection.
+
 ## 3.0.3.12
 
 - Keep radio buttons and checkboxes beside their labels; wrapped text aligns beneath the label.

@@ -2,6 +2,34 @@
 // header or its width=1024 viewport identifies old Reddit; modern Reddit is left alone.
 (() => {
   if (!matchMedia('(max-device-width: 800px)').matches) return;
+  const themeKey = 'sifi-reddit-theme';
+  let theme = 'dark';
+  try { if (localStorage.getItem(themeKey) === 'light') theme = 'light'; } catch {}
+  const applyTheme = () => {
+    document.documentElement.dataset.sifiTheme = theme;
+    const header = document.querySelector('#header-bottom-right');
+    if (!header) return;
+    let toggle = document.getElementById('sifi-theme-toggle');
+    if (!toggle) {
+      toggle = document.createElement('button');
+      toggle.id = 'sifi-theme-toggle';
+      toggle.type = 'button';
+      toggle.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        try { localStorage.setItem(themeKey, theme); } catch {}
+        applyTheme();
+      });
+      header.append(toggle);
+    }
+    const label = theme === 'dark' ? 'Light mode' : 'Dark mode';
+    if (toggle.textContent !== label) toggle.textContent = label;
+    toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+  };
+  window.addEventListener('storage', event => {
+    if (event.key !== themeKey || !document.documentElement.classList.contains('sifi-reddit-mobile')) return;
+    theme = event.newValue === 'light' ? 'light' : 'dark';
+    applyTheme();
+  });
   const blockThemes = () => {
     if (!document.documentElement?.classList.contains('sifi-reddit-mobile')) return;
     for (const theme of document.querySelectorAll('link[title="applied_subreddit_stylesheet"]')) {
@@ -40,6 +68,7 @@
     }
     // Subreddit themes assume a desktop canvas and override header geometry.
     // Disable only their dedicated stylesheet, leaving Reddit's base CSS intact.
+    applyTheme();
     blockThemes();
     formatPreferenceOptions();
     if (!viewport && document.head) {

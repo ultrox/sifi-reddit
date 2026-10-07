@@ -1,0 +1,74 @@
+/* Only classic mobile Reddit is themed. Images and videos keep their colors. */
+html.sifi-reddit-mobile[data-sifi-theme="dark"] {
+  color-scheme: dark;
+  --sifi-bg: #11161d;
+  --sifi-surface: #1a222c;
+  --sifi-text: #e4e9ef;
+  --sifi-muted: #a6b0be;
+  --sifi-border: #344152;
+  --sifi-link: #82b7ff;
+  background: var(--sifi-bg);
+}
+.sifi-reddit-mobile[data-sifi-theme="dark"] body,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .content,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .thing,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .entry,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .usertext-body,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .usertext-body .md {
+  background: var(--sifi-bg) !important;
+  color: var(--sifi-text);
+}
+.sifi-reddit-mobile[data-sifi-theme="dark"] #header,
+.sifi-reddit-mobile[data-sifi-theme="dark"] #header-bottom-right,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .tabmenu li a,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .drop-choices,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .infobar,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .nextprev a {
+  background: var(--sifi-surface) !important;
+  color: var(--sifi-text);
+  border-color: var(--sifi-border) !important;
+}
+.sifi-reddit-mobile[data-sifi-theme="dark"] #header-img.default-header { filter: brightness(0) invert(1); }
+.sifi-reddit-mobile[data-sifi-theme="dark"] a { color: var(--sifi-link); }
+.sifi-reddit-mobile[data-sifi-theme="dark"] a.title:visited { color: #c4a4ef; }
+.sifi-reddit-mobile[data-sifi-theme="dark"] .tabmenu li.selected a {
+  color: var(--sifi-link);
+  background: var(--sifi-bg) !important;
+}
+.sifi-reddit-mobile[data-sifi-theme="dark"] .md,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .pagename,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .panestack-title,
+.sifi-reddit-mobile[data-sifi-theme="dark"] #pref-form th,
+.sifi-reddit-mobile[data-sifi-theme="dark"] #pref-form td,
+.sifi-reddit-mobile[data-sifi-theme="dark"] #pref-form h6,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .pretty-form { color: var(--sifi-text); }
+.sifi-reddit-mobile[data-sifi-theme="dark"] .tagline,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .tagline .score,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .domain,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .domain a,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .buttons a,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .user,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .menuarea,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .dropdown-title,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .score,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .details { color: var(--sifi-muted); }
+.sifi-reddit-mobile[data-sifi-theme="dark"] textarea,
+.sifi-reddit-mobile[data-sifi-theme="dark"] select,
+.sifi-reddit-mobile[data-sifi-theme="dark"] input:not([type="checkbox"]):not([type="radio"]),
+.sifi-reddit-mobile[data-sifi-theme="dark"] button:not(#sifi-theme-toggle) {
+  background: var(--sifi-surface);
+  color: var(--sifi-text);
+  border: 1px solid var(--sifi-border);
+}
+.sifi-reddit-mobile[data-sifi-theme="dark"] input[type="checkbox"],
+.sifi-reddit-mobile[data-sifi-theme="dark"] input[type="radio"] { accent-color: var(--sifi-link); }
+.sifi-reddit-mobile[data-sifi-theme="dark"] .thing.link,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .comment .child,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .panestack-title,
+.sifi-reddit-mobile[data-sifi-theme="dark"] #pref-form .preftable tr,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .md blockquote { border-color: var(--sifi-border); }
+.sifi-reddit-mobile[data-sifi-theme="dark"] .md code,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .md pre { background: var(--sifi-surface); color: var(--sifi-text); }
+.sifi-reddit-mobile[data-sifi-theme="dark"] .flair,
+.sifi-reddit-mobile[data-sifi-theme="dark"] .linkflairlabel { background: var(--sifi-surface); color: var(--sifi-text); border-color: var(--sifi-border); }
+.sifi-reddit-mobile[data-sifi-theme="dark"] .lightdrop .selected { color: var(--sifi-link); }

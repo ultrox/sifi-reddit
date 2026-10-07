@@ -1,7 +1,7 @@
 {
   "name": "SIFI Reddit",
   "description": "Classic Reddit with a readable mobile layout. Based on Old Reddit Redirect.",
-  "version": "3.0.3.12",
+  "version": "3.0.3.13",
   "manifest_version": 3,
   "icons": {
     "16": "img/icon16.png",
@@ -40,7 +40,8 @@
         "mobile.js"
       ],
       "css": [
-        "mobile.css"
+        "mobile.css",
+        "dark.css"
       ],
       "run_at": "document_start"
     }

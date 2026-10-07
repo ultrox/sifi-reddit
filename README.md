@@ -7,6 +7,7 @@ built and tested with [Titanium Browser](https://github.com/jqssun/android-titan
 ## What changes
 
 - Classic Reddit, with the original old/new layout toggle.
+- Dark mode by default, with a remembered light/dark toggle in the account header.
 - A mobile viewport and readable, single-column posts and comments.
 - Subreddit theme styles blocked on phones, keeping the layout consistent.
 - Videos that fit the screen and reserve their space before loading.
