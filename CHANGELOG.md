@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.0.3.12
+
+- Keep radio buttons and checkboxes beside their labels; wrapped text aligns beneath the label.
+- Restore native label associations for checkboxes without IDs.
+
+## 3.0.3.11
+
+- Stack preferences labels above controls on phones and constrain form widths.
+
 ## 3.0.3.10
 
 Initial standalone SIFI Reddit release, based on Old Reddit Redirect 3.0.3.

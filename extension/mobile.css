@@ -159,3 +159,54 @@ html.sifi-reddit-mobile { width: 100%; overflow-x: clip; }
   overflow-wrap: anywhere;
 }
 .sifi-reddit-mobile .usertext-edit .bottom-area { max-width: 100%; }
+/* Preferences uses a desktop table; stack each label above its controls. */
+.sifi-reddit-mobile #pref-form { width: 100%; min-width: 0; max-width: 100%; margin: 0; }
+.sifi-reddit-mobile #pref-form .preftable,
+.sifi-reddit-mobile #pref-form .preftable > tbody,
+.sifi-reddit-mobile #pref-form .preftable tr,
+.sifi-reddit-mobile #pref-form .preftable th,
+.sifi-reddit-mobile #pref-form .preftable td {
+  display: block;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100%;
+}
+.sifi-reddit-mobile #pref-form .preftable { margin: 0; }
+.sifi-reddit-mobile #pref-form .preftable tr { padding: 14px 0; border-bottom: 1px solid #d9dde3; }
+.sifi-reddit-mobile #pref-form .preftable th { padding: 0 0 8px; text-align: left; font-size: 16px; }
+.sifi-reddit-mobile #pref-form .preftable td { padding: 0; line-height: 1.5; overflow-wrap: anywhere; }
+.sifi-reddit-mobile #pref-form select,
+.sifi-reddit-mobile #pref-form textarea,
+.sifi-reddit-mobile #pref-form input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]) {
+  max-width: 100%;
+  min-width: 0;
+  font-size: 16px;
+}
+.sifi-reddit-mobile #pref-form select { width: 100%; }
+.sifi-reddit-mobile #pref-form label { white-space: normal; }
+.sifi-reddit-mobile #pref-form input[type=checkbox],
+.sifi-reddit-mobile #pref-form input[type=radio] { vertical-align: middle; margin-right: 8px; }
+
+/* Treat each control and its label as one row; wrap only the label text. */
+.sifi-reddit-mobile #pref-form .sifi-pref-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 8px 0;
+  width: 100%;
+}
+.sifi-reddit-mobile #pref-form .sifi-pref-option > input {
+  flex: 0 0 auto;
+  float: none;
+  margin: 4px 0 0 !important;
+}
+.sifi-reddit-mobile #pref-form .sifi-pref-option > label {
+  display: block;
+  flex: 1 1 0;
+  min-width: 0;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}

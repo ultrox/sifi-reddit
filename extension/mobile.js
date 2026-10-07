@@ -12,6 +12,23 @@
       if (theme.sheet && !theme.sheet.disabled) theme.sheet.disabled = true;
     }
   };
+  const formatPreferenceOptions = () => {
+    const controls = document.querySelectorAll('#pref-form input[type="radio"], #pref-form input[type="checkbox"]');
+    for (const [index, control] of [...controls].entries()) {
+      if (control.parentElement.classList.contains('sifi-pref-option')) continue;
+      const label = control.nextElementSibling;
+      if (label?.tagName !== 'LABEL') continue;
+      const separator = label.nextElementSibling;
+      const option = document.createElement('div');
+      option.className = 'sifi-pref-option';
+      control.before(option);
+      option.append(control, label);
+      // Some native checkboxes have a name but no id, breaking label association.
+      if (!control.id) control.id = `sifi-pref-option-${index}`;
+      label.htmlFor = control.id;
+      if (separator?.tagName === 'BR') separator.remove();
+    }
+  };
   const initialize = () => {
     const root = document.documentElement;
     if (!root) return;
@@ -24,6 +41,7 @@
     // Subreddit themes assume a desktop canvas and override header geometry.
     // Disable only their dedicated stylesheet, leaving Reddit's base CSS intact.
     blockThemes();
+    formatPreferenceOptions();
     if (!viewport && document.head) {
       viewport = document.createElement('meta');
       viewport.name = 'viewport';
