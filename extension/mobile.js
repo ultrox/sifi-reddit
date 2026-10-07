@@ -55,6 +55,26 @@
     mode = validMode(event.newValue);
     applyTheme();
   });
+  const splitAccountHeader = () => {
+    const header = document.querySelector('#header-bottom-right');
+    if (!header || header.querySelector('.sifi-account-left')) return;
+    const preferences = header.querySelector('a.pref-lang')?.closest('ul');
+    const left = document.createElement('div');
+    const right = document.createElement('div');
+    left.className = 'sifi-account-left';
+    right.className = 'sifi-account-right';
+    for (const node of [...header.childNodes]) {
+      if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains('separator')) {
+        node.remove();
+        continue;
+      }
+      const isRight = node === preferences ||
+        (node.nodeType === Node.ELEMENT_NODE &&
+          (node.matches('form.logout') || node.id === 'sifi-theme-toggle'));
+      (isRight ? right : left).append(node);
+    }
+    header.append(left, right);
+  };
   const blockThemes = () => {
     if (!document.documentElement?.classList.contains('sifi-reddit-mobile')) return;
     for (const theme of document.querySelectorAll('link[title="applied_subreddit_stylesheet"]')) {
@@ -112,6 +132,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     initialize();
     observer.disconnect();
+    if (document.documentElement.classList.contains('sifi-reddit-mobile')) splitAccountHeader();
     // Watch only the small head, never the post/comment tree or scrolling.
     if (document.head && document.documentElement.classList.contains('sifi-reddit-mobile')) {
       const headObserver = new MutationObserver(blockThemes);

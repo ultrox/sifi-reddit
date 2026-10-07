@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.3.16
+
+- Split the account row: account and message links left, preferences/logout/theme right.
+
 ## 3.0.3.15
 
 - Replace theme text with compact system, sun and moon icons, retaining accessible labels.
