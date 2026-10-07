@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.3.18
+
+- Keep account icons fully visible and remove the account row scroll decoration.
+
 ## 3.0.3.17
 
 - Hide all remaining pipe separators in the mobile header.

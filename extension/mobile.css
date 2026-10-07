@@ -241,7 +241,11 @@ html.sifi-reddit-mobile { width: 100%; overflow-x: clip; }
 }
 .sifi-reddit-mobile .sifi-account-left,
 .sifi-reddit-mobile .sifi-account-right { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
-.sifi-reddit-mobile .sifi-account-left { flex: 1 1 0; min-width: 0; overflow-x: auto; }
+.sifi-reddit-mobile .sifi-account-left { flex: 1 1 0; min-width: 0; min-height: 26px; }
+.sifi-reddit-mobile .sifi-account-left .user { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.sifi-reddit-mobile .sifi-account-left #mail,
+.sifi-reddit-mobile .sifi-account-left #notifications,
+.sifi-reddit-mobile .sifi-account-left #chat { flex: 0 0 auto; top: 0; }
 .sifi-reddit-mobile .sifi-account-right { flex: 0 0 auto; margin-left: auto; }
 .sifi-reddit-mobile .sifi-account-right ul,
 .sifi-reddit-mobile .sifi-account-right form { margin: 0; padding: 0; }
