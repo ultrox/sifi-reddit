@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.3.15
+
+- Replace theme text with compact system, sun and moon icons, retaining accessible labels.
+
 ## 3.0.3.14
 
 - Default to the system color scheme and react to OS theme changes.

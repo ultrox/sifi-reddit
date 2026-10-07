@@ -28,7 +28,22 @@
       header.append(toggle);
     }
     const label = `Theme: ${mode[0].toUpperCase()}${mode.slice(1)}`;
-    if (toggle.textContent !== label) toggle.textContent = label;
+    if (toggle.dataset.mode !== mode) {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('aria-hidden', 'true');
+      const paths = {
+        system: 'M4 4h16v12H4z M8 20h8 M12 16v4',
+        light: 'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M12 2v2 M12 20v2 M2 12h2 M20 12h2 M5 5l1.5 1.5 M17.5 17.5L19 19 M5 19l1.5-1.5 M17.5 6.5L19 5',
+        dark: 'M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z',
+      };
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', paths[mode]);
+      svg.append(path);
+      toggle.replaceChildren(svg);
+      toggle.dataset.mode = mode;
+    }
+    toggle.title = label;
     const nextMode = modes[(modes.indexOf(mode) + 1) % modes.length];
     toggle.setAttribute('aria-label', `${label}. Switch to ${nextMode} mode`);
   };
