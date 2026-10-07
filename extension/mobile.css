@@ -8,6 +8,7 @@ html.sifi-reddit-mobile { width: 100%; overflow-x: clip; }
 .sifi-reddit-mobile .rank,
 .sifi-reddit-mobile .footer-parent { display: none !important; }
 .sifi-reddit-mobile #header { min-width: 0; }
+.sifi-reddit-mobile #header .separator { display: none !important; }
 .sifi-reddit-mobile #header-bottom-left { padding: 10px 12px 0; }
 .sifi-reddit-mobile img#header-img { max-height: 36px; width: auto; }
 /* The default logo is a sprite anchor, not an image: preserve its native box. */

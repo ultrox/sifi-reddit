@@ -1,7 +1,7 @@
 {
   "name": "SIFI Reddit",
   "description": "Classic Reddit with a readable mobile layout. Based on Old Reddit Redirect.",
-  "version": "3.0.3.16",
+  "version": "3.0.3.17",
   "manifest_version": 3,
   "icons": {
     "16": "img/icon16.png",

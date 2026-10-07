@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.3.17
+
+- Hide all remaining pipe separators in the mobile header.
+
 ## 3.0.3.16
 
 - Split the account row: account and message links left, preferences/logout/theme right.
