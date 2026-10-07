@@ -1,0 +1,13 @@
+{
+  "name": "sifi-reddit",
+  "version": "3.0.3.10",
+  "private": true,
+  "description": "Classic Reddit made usable on Android, built for Titanium Browser.",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "check": "node scripts/check.cjs",
+    "build": "node scripts/build.cjs",
+    "build:crx": "node scripts/build.cjs --crx"
+  }
+}

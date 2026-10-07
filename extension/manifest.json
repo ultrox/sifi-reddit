@@ -1,0 +1,66 @@
+{
+  "name": "SIFI Reddit",
+  "description": "Classic Reddit with a readable mobile layout. Based on Old Reddit Redirect.",
+  "version": "3.0.3.10",
+  "manifest_version": 3,
+  "icons": {
+    "16": "img/icon16.png",
+    "32": "img/icon32.png",
+    "48": "img/icon48.png",
+    "64": "img/icon64.png",
+    "96": "img/icon96.png",
+    "128": "img/icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "img/icon16.png",
+      "32": "img/icon32.png",
+      "48": "img/icon48.png",
+      "128": "img/icon128.png"
+    },
+    "default_title": "Switch to new Reddit"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.reddit.com/*"
+      ],
+      "css": [
+        "styles.css"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.reddit.com/*"
+      ],
+      "js": [
+        "mobile.js"
+      ],
+      "css": [
+        "mobile.css"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "cookies",
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "host_permissions": [
+    "*://*.reddit.com/*",
+    "*://i.redd.it/*",
+    "*://preview.redd.it/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  }
+}

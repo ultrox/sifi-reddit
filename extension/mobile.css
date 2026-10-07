@@ -1,0 +1,161 @@
+/* Scope every override to the classic mobile page. Preserve native scrolling. */
+html.sifi-reddit-mobile { width: 100%; overflow-x: clip; }
+.sifi-reddit-mobile body { min-width: 0 !important; width: 100%; margin: 0; font-size: 15px; }
+.sifi-reddit-mobile *, .sifi-reddit-mobile *::before, .sifi-reddit-mobile *::after { box-sizing: border-box; }
+.sifi-reddit-mobile .side,
+.sifi-reddit-mobile #sr-header-area,
+.sifi-reddit-mobile .listing-chooser,
+.sifi-reddit-mobile .rank,
+.sifi-reddit-mobile .footer-parent { display: none !important; }
+.sifi-reddit-mobile #header { min-width: 0; }
+.sifi-reddit-mobile #header-bottom-left { padding: 10px 12px 0; }
+.sifi-reddit-mobile img#header-img { max-height: 36px; width: auto; }
+/* The default logo is a sprite anchor, not an image: preserve its native box. */
+.sifi-reddit-mobile #header-img.default-header { max-height: none; width: 120px; }
+.sifi-reddit-mobile #header .pagename { font-size: 18px; margin: 0 8px; }
+.sifi-reddit-mobile #header-bottom-right { position: static; padding: 8px 12px; font-size: 12px; }
+.sifi-reddit-mobile #header .tabmenu { display: flex; overflow-x: auto; gap: 4px; margin: 10px -12px 0; padding: 0 8px; white-space: nowrap; }
+.sifi-reddit-mobile .tabmenu li { display: block; flex: 0 0 auto; }
+.sifi-reddit-mobile .tabmenu li a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 12px; font-size: 14px; }
+.sifi-reddit-mobile body > .content { margin: 0 !important; padding: 12px 10px; min-width: 0; width: 100%; }
+.sifi-reddit-mobile .thing.link { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 8px; margin: 0; padding: 14px 0; border-bottom: 1px solid #d9dde3; }
+.sifi-reddit-mobile .link .midcol { grid-column: 1; grid-row: 1 / span 3; width: 32px !important; margin: 0; }
+.sifi-reddit-mobile .link .thumbnail { grid-column: 2; float: none; width: auto; max-width: 100%; height: auto; margin: 0; }
+.sifi-reddit-mobile .link .thumbnail img { max-width: 140px; width: auto; height: auto; border-radius: 6px; }
+.sifi-reddit-mobile .link .entry { grid-column: 2; margin: 0; min-width: 0; overflow: visible; }
+.sifi-reddit-mobile .link .title { font-size: 18px; line-height: 1.4; overflow-wrap: anywhere; margin-bottom: 6px; }
+.sifi-reddit-mobile .domain { font-size: 12px; }
+.sifi-reddit-mobile .tagline { font-size: 12px; line-height: 1.6; white-space: normal; }
+.sifi-reddit-mobile .flat-list.buttons { display: flex; flex-wrap: wrap; gap: 0 8px; }
+.sifi-reddit-mobile .flat-list.buttons li { padding: 0; }
+.sifi-reddit-mobile .flat-list.buttons a { display: inline-flex; align-items: center; min-height: 40px; font-size: 13px; }
+.sifi-reddit-mobile .arrow { margin: 8px auto; transform: scale(1.35); }
+.sifi-reddit-mobile .score { font-size: 12px; }
+.sifi-reddit-mobile .expando { width: 100% !important; max-width: 100%; }
+.sifi-reddit-mobile .expando iframe,
+.sifi-reddit-mobile video,
+.sifi-reddit-mobile .md img { max-width: 100%; }
+.sifi-reddit-mobile .md { max-width: 100%; font-size: 15px; line-height: 1.55; overflow-wrap: anywhere; }
+.sifi-reddit-mobile .md pre { overflow-x: auto; }
+.sifi-reddit-mobile .md table { display: block; overflow-x: auto; }
+.sifi-reddit-mobile .commentarea { margin-top: 20px; }
+.sifi-reddit-mobile .commentarea > .usertext { margin: 12px 0; }
+.sifi-reddit-mobile .usertext-edit { width: 100%; }
+.sifi-reddit-mobile .usertext-edit textarea { width: 100%; max-width: 100%; min-height: 100px; font-size: 16px; }
+.sifi-reddit-mobile .comment .midcol { width: 24px; margin: 0 4px 0 0; }
+.sifi-reddit-mobile .comment .entry { min-width: 0; margin-left: 30px; }
+.sifi-reddit-mobile .comment .child { margin-left: 8px; padding-left: 6px; }
+.sifi-reddit-mobile .comment { margin-left: 0; padding: 8px 0; }
+.sifi-reddit-mobile .commentarea .menuarea { margin: 8px 0; }
+.sifi-reddit-mobile .infobar,
+.sifi-reddit-mobile .panestack-title,
+.sifi-reddit-mobile .menuarea { max-width: 100%; white-space: normal; }
+.sifi-reddit-mobile .nextprev { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 16px 0; font-size: 14px; }
+.sifi-reddit-mobile .nextprev a { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 16px; }
+/* Reddit adds desktop minimum widths inline to every native video wrapper. */
+.sifi-reddit-mobile .expando .media-preview,
+.sifi-reddit-mobile .expando .media-preview-content,
+.sifi-reddit-mobile .expando .no-constraints-when-pinned,
+.sifi-reddit-mobile .expando .reddit-video-player-root:not(:fullscreen) {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  height: auto !important;
+}
+.sifi-reddit-mobile .reddit-video-player-root:not(:fullscreen)::after { display: none !important; }
+.sifi-reddit-mobile .reddit-video-player-root:not(:fullscreen) > video:not(:fullscreen) {
+  position: relative !important;
+  display: block;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 65svh;
+  margin: 0 auto;
+  object-fit: contain;
+}
+/* Reserve the player before metadata arrives; the video never resizes the post. */
+.sifi-reddit-mobile .expando .reddit-video-player-root:not(:fullscreen) {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-height: 65svh !important;
+  background: #000;
+}
+.sifi-reddit-mobile .expando .reddit-video-player-root.portrait:not(:fullscreen) { aspect-ratio: 9 / 16; }
+.sifi-reddit-mobile .reddit-video-player-root:not(:fullscreen) > video:not(:fullscreen) {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  height: 100% !important;
+  max-height: 100%;
+}
+/* Keep the comment count together, independently of post-title styling. */
+.sifi-reddit-mobile .commentarea .panestack-title { display: flex; align-items: center; width: 100%; }
+.sifi-reddit-mobile .commentarea .panestack-title > .title {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+/* Compact native links in one row, with space between each action. */
+.sifi-reddit-mobile .entry > .flat-list.buttons {
+  display: flex !important;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  margin-top: 4px;
+  overflow-x: auto;
+}
+.sifi-reddit-mobile .entry > .flat-list.buttons > li { flex: 0 0 auto; min-width: 0; margin: 0; padding: 0; }
+.sifi-reddit-mobile .entry > .flat-list.buttons a {
+  width: auto;
+  min-height: 28px;
+  padding: 2px 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  font-size: 12px;
+  white-space: nowrap;
+}
+/* The native notice reserves desktop sidebar space even after it is hidden. */
+.sifi-reddit-mobile .commentarea > .infobar {
+  display: block;
+  float: none;
+  width: 100% !important;
+  max-width: 100%;
+  margin: 10px 0;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.sifi-reddit-mobile .commentarea > .infobar p { margin: 4px 0 0; }
+/* Reddit's editor script writes a desktop pixel width as the draft grows. */
+.sifi-reddit-mobile .usertext { min-width: 0; max-width: 100%; }
+.sifi-reddit-mobile .usertext-edit {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+.sifi-reddit-mobile .usertext-edit > .md {
+  width: 100% !important;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+}
+.sifi-reddit-mobile .usertext-edit textarea {
+  display: block;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  resize: vertical;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.sifi-reddit-mobile .usertext-edit .bottom-area { max-width: 100%; }
