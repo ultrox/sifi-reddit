@@ -2,11 +2,17 @@
 // header or its width=1024 viewport identifies old Reddit; modern Reddit is left alone.
 (() => {
   if (!matchMedia('(max-device-width: 800px)').matches) return;
-  const themeKey = 'sifi-reddit-theme';
-  let theme = 'dark';
-  try { if (localStorage.getItem(themeKey) === 'light') theme = 'light'; } catch {}
+  // Separate from the old forced-dark preference so upgrades default to System.
+  const themeKey = 'sifi-reddit-theme-mode';
+  const modes = ['system', 'light', 'dark'];
+  const systemTheme = matchMedia('(prefers-color-scheme: dark)');
+  const validMode = value => modes.includes(value) ? value : 'system';
+  let mode = 'system';
+  try { mode = validMode(localStorage.getItem(themeKey)); } catch {}
   const applyTheme = () => {
-    document.documentElement.dataset.sifiTheme = theme;
+    const root = document.documentElement;
+    root.dataset.sifiThemeMode = mode;
+    root.dataset.sifiTheme = mode === 'system' ? (systemTheme.matches ? 'dark' : 'light') : mode;
     const header = document.querySelector('#header-bottom-right');
     if (!header) return;
     let toggle = document.getElementById('sifi-theme-toggle');
@@ -15,19 +21,23 @@
       toggle.id = 'sifi-theme-toggle';
       toggle.type = 'button';
       toggle.addEventListener('click', () => {
-        theme = theme === 'dark' ? 'light' : 'dark';
-        try { localStorage.setItem(themeKey, theme); } catch {}
+        mode = modes[(modes.indexOf(mode) + 1) % modes.length];
+        try { localStorage.setItem(themeKey, mode); } catch {}
         applyTheme();
       });
       header.append(toggle);
     }
-    const label = theme === 'dark' ? 'Light mode' : 'Dark mode';
+    const label = `Theme: ${mode[0].toUpperCase()}${mode.slice(1)}`;
     if (toggle.textContent !== label) toggle.textContent = label;
-    toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+    const nextMode = modes[(modes.indexOf(mode) + 1) % modes.length];
+    toggle.setAttribute('aria-label', `${label}. Switch to ${nextMode} mode`);
   };
+  systemTheme.addEventListener('change', () => {
+    if (mode === 'system' && document.documentElement.classList.contains('sifi-reddit-mobile')) applyTheme();
+  });
   window.addEventListener('storage', event => {
     if (event.key !== themeKey || !document.documentElement.classList.contains('sifi-reddit-mobile')) return;
-    theme = event.newValue === 'light' ? 'light' : 'dark';
+    mode = validMode(event.newValue);
     applyTheme();
   });
   const blockThemes = () => {

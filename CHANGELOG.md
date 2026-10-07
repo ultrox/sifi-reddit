@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.3.14
+
+- Default to the system color scheme and react to OS theme changes.
+- Remember explicit System, Light or Dark selections; upgrades start in System mode.
+
 ## 3.0.3.13
 
 - Dark mobile theme for feeds, comments, preferences and form controls.

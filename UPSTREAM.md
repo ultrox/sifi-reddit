@@ -11,4 +11,4 @@ SIFI's additions are extension/mobile.js and extension/mobile.css, plus the
 Chromium-only manifest, packaging scripts, and documentation. The original
 redirect, cookie management, request rules, icons, and layout toggle remain.
 
-Current extension version: 3.0.3.13.
+Current extension version: 3.0.3.14.
