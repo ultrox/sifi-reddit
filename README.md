@@ -1,5 +1,11 @@
 # SIFI Reddit
 
+> [!IMPORTANT]
+> **Moved.** SIFI Reddit now lives in the extensions monorepo at
+> [ultrox/extensions → apps/sifi-reddit](https://github.com/ultrox/extensions/tree/main/apps/sifi-reddit),
+> with this repo's full history. Releases (zip) are published there as `sifi-reddit@<version>`.
+> This repository is archived and no longer updated.
+
 Classic Reddit made usable on an Android phone. A personal Manifest V3 fork of
 [Old Reddit Redirect](https://github.com/tom-james-watson/old-reddit-redirect),
 built and tested with [Titanium Browser](https://github.com/jqssun/android-titanium-browser).
